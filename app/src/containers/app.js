@@ -1,0 +1,22 @@
+import React from 'react'
+import { connect } from 'react-redux'
+import App from '../components/app'
+import AppActions from '../actions/app'
+
+function mapStateToProps(state) {
+	console.log("mapStateToProps")
+	return state
+}
+
+function mapDispatchToProps(dispatch) {
+	console.log("mapDispatchToProps")
+	return {
+		handleClick: () => { dispatch(AppActions.increment()) }
+	}
+}
+
+//connectでReduxとReactコンポーネントを繋ぐ
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(App)
